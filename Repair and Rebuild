@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo Repairing permissions...
+echo
+echo sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /
+
+sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /
+
+echo
+echo Removing caches...
+echo
+echo sudo rm -r /System/Library/Caches/com.apple.kext.caches
+sudo rm -r /System/Library/Caches/com.apple.kext.caches
+
+echo
+echo Touching Extensions...
+echo
+echo sudo touch /System/Library/Extensions
+
+sudo touch /System/Library/Extensions
+
+echo
+echo Rebuilding kext-cache...
+echo
+echo sudo kextcache -update-volume /
+
+sudo kextcache -update-volume /
